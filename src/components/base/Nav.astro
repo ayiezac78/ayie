@@ -1,0 +1,14 @@
+---
+import ThemeIcon from "./ThemeIcon.astro";
+
+const {pathname} = Astro.url;
+---
+<header class="flex items-center justify-between">
+  <nav class="font-medium flex gap-2">
+    <a href="/" class={pathname === "/" ? '' : 'text-gray-600/90 hover:text-[#292929] transition-colors duration-200 ease-in-out dark:text-slate-300 dark:hover:text-slate-100'}>ayie</a>
+    <a href="/insights" class={pathname === "/insights" ? '' : 'text-gray-600/90 hover:text-[#292929] transition-colors duration-200 ease-in-out dark:text-slate-300 dark:hover:text-slate-100'}>insights</a>
+    <a href="/showcase" class={pathname === "/showcase" ? '' : 'text-gray-600/90 hover:text-[#292929] transition-colors duration-200 ease-in-out dark:text-slate-300 dark:hover:text-slate-100'}>showcase</a>
+    <!-- <a href="#"></a> -->
+  </nav>
+  <ThemeIcon/>
+</header>

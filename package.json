@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "astro-tuts",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +9,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.13.4"
+    "@astrojs/node": "^9.4.3",
+    "@csswizardry/defaults.css": "^0.3.0",
+    "@lucide/astro": "^0.542.0",
+    "@tailwindcss/vite": "^4.1.12",
+    "astro": "^5.13.4",
+    "astro-font": "^1.1.0",
+    "tailwindcss": "^4.1.12"
+  },
+  "private": true,
+  "devDependencies": {
+    "@biomejs/biome": "2.2.2",
+    "@types/bun": "latest",
+    "jiti": "^2.5.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   }
 }

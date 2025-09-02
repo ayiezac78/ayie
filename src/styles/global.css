@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer defaults;
+
+:root {
+  /* Font sizes */
+  --fs-h1: clamp(2.5rem, 1rem + 5vw, 4rem);
+  --fs-h2: clamp(2rem, 0.8rem + 3.5vw, 3rem);
+  --fs-h3: clamp(1.75rem, 0.6rem + 3vw, 2.5rem);
+  --fs-h4: clamp(1.5rem, 0.5rem + 2vw, 2rem);
+  --fs-h5: clamp(1.25rem, 0.4rem + 1.5vw, 1.5rem);
+  --fs-h6: clamp(1rem, 0.3rem + 1vw, 1.25rem);
+  
+  /* Light Theme */
+  --text-light: #000;
+  --bg-light: #fff;
+  --page-bg-light: #f5f5f5;
+
+  --defaults-margin-bottom: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-scheme: dark;
+  }
+}
+
+html {
+  background-color: var(--page-bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark{
+    /* Dark Theme */
+  --text-dark: #fff;
+  --bg-dark: #292929;
+  --page-bg-dark: #111;
+}
+
+/* Dark mode override */
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: var(--page-bg-dark);
+    color: var(--text-dark);
+  }
+}
+
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-ibm-plex-sans);
+  font-stretch: 100%;
+  font-optical-sizing: auto;
+}
+
+canvas,
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+  font-optical-sizing: auto;
+  font-family: var(--font-outfit);
+}
+
+#__next,
+#root {
+  isolation: isolate;
+}
+
+blockquote,
+body,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+p {
+  -webkit-margin-after: 0;
+  margin-block-end: 0;
+}
+
+ol[role="list"],
+ul[role="list"] {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+button,
+h1,
+h2,
+h3,
+h4,
+input,
+label {
+  line-height: 1.1;
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+h1, .h1 { font-size: var(--fs-h1); }
+h2, .h2 { font-size: var(--fs-h2); }
+h3, .h3 { font-size: var(--fs-h3); }
+h4, .h4 { font-size: var(--fs-h4); }
+h5, .h5 { font-size: var(--fs-h5); }
+h6, .h6 { font-size: var(--fs-h6); }
+
