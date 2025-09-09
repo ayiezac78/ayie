@@ -13,28 +13,28 @@ export default defineConfig({
   },
 
   prefetch: {
-    prefetchAll: true
+    prefetchAll: true,
   },
 
-  experimental:{
+  experimental: {
     clientPrerender: true,
-    fonts:[
+    fonts: [
       {
         provider: fontProviders.fontshare(),
-        name: "Outfit",
-        cssVariable: "--font-outfit",
+        name: "Bebas Neue",
+        cssVariable: "--font-bebas-neue",
         styles: ["normal"],
-         weights: ["100 900"],
-        fallbacks: ["Calibri"]
+        weights: ["100 900"],
+        fallbacks: ["Bahnschrift", "Arial", "sans-serif"],
       },
       {
         provider: fontProviders.google(),
-        name: "IBM Plex Sans",
-        cssVariable: "--font-ibm-plex-sans",
+        name: "Roboto",
+        cssVariable: "--font-roboto",
         styles: ["normal", "italic"],
         weights: ["100 700"],
-        fallbacks: ["system-ui", "sans-serif"]
+        fallbacks: ["Inter", "Helvetica Neue", "Helvetica", "Arial", "Arial Nova", "Nimbus Sans", "sans-serif"],
       },
-    ]
-  }
+    ],
+  },
 });

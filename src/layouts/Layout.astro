@@ -1,34 +1,40 @@
 ---
-import '../styles/global.css';
-import {Font} from 'astro:assets';
-import Nav from '../components/base/Nav.astro';
+import "../styles/global.css";
+import { Font } from "astro:assets";
+import Footer from "../components/base/footer.astro";
+import Nav from "../components/base/nav.astro";
 
 interface MetaDataProps {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
 
-const {title = "Ayie", description = "Showcasing my work in design and development, blending creativity with functionality to deliver impactful projects and collaborations."} = Astro.props as MetaDataProps;
+const {
+  title = "Ayie",
+  description = "Showcasing my work in design and development, blending creativity with functionality to deliver impactful projects and collaborations.",
+} = Astro.props as MetaDataProps;
 
 const canonicalURL = Astro.url;
 ---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description}>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<Font cssVariable="--font-outfit" preload />
-		<Font cssVariable="--font-ibm-plex-sans" preload />
-		<link rel="canonical" href={canonicalURL}>
-		<title>{title}</title>
-	</head>
-	<body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">
-		<Nav />
-		<main class="flex-auto">
-			<slot />
-		</main>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <Font cssVariable="--font-bebas-neue" preload />
+    <Font cssVariable="--font-roboto" preload />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+  </head>
+  <body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">
+    <Nav />
+    <main class="flex-auto">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>

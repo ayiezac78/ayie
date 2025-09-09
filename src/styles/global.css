@@ -12,7 +12,7 @@
   --fs-h4: clamp(1.5rem, 0.5rem + 2vw, 2rem);
   --fs-h5: clamp(1.25rem, 0.4rem + 1.5vw, 1.5rem);
   --fs-h6: clamp(1rem, 0.3rem + 1vw, 1.25rem);
-  
+
   /* Light Theme */
   --text-light: #000;
   --bg-light: #fff;
@@ -30,11 +30,13 @@
 html {
   background-color: var(--page-bg);
   color: var(--text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-html.dark{
-    /* Dark Theme */
+html.dark {
+  /* Dark Theme */
   --text-dark: #fff;
   --bg-dark: #292929;
   --page-bg-dark: #111;
@@ -48,10 +50,9 @@ html.dark{
   }
 }
 
-
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: var(--font-ibm-plex-sans);
+  font-family: var(--font-roboto);
   font-stretch: 100%;
   font-optical-sizing: auto;
 }
@@ -96,7 +97,7 @@ h5,
 h6 {
   text-wrap: balance;
   font-optical-sizing: auto;
-  font-family: var(--font-outfit);
+  font-family: var(--font-bebas-neue);
 }
 
 #__next,
@@ -158,10 +159,27 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
-h1, .h1 { font-size: var(--fs-h1); }
-h2, .h2 { font-size: var(--fs-h2); }
-h3, .h3 { font-size: var(--fs-h3); }
-h4, .h4 { font-size: var(--fs-h4); }
-h5, .h5 { font-size: var(--fs-h5); }
-h6, .h6 { font-size: var(--fs-h6); }
-
+h1,
+.h1 {
+  font-size: var(--fs-h1);
+}
+h2,
+.h2 {
+  font-size: var(--fs-h2);
+}
+h3,
+.h3 {
+  font-size: var(--fs-h3);
+}
+h4,
+.h4 {
+  font-size: var(--fs-h4);
+}
+h5,
+.h5 {
+  font-size: var(--fs-h5);
+}
+h6,
+.h6 {
+  font-size: var(--fs-h6);
+}

@@ -1,9 +1,14 @@
 ---
 import { Binary, Dot } from "@lucide/astro";
-import ReactIcon from "../assets/ReactIcon.astro";
-import TailwindIcon from "../assets/TailwindIcon.astro";
-import PhpIcon from "../assets/PhpIcon.astro";
-import AstroIcon from "../assets/AstroIcon.astro";
+import AstroIcon from "../assets/astro-icon.astro";
+import BootstrapIcon from "../assets/bootstrap-icon.astro";
+import CssIcon from "../assets/css-icon.astro";
+import GitIcon from "../assets/git-icon.astro";
+import Nextjs from "../assets/nextjs.astro";
+import PhpIcon from "../assets/php-icon.astro";
+import ReactIcon from "../assets/react-icon.astro";
+import SassIcon from "../assets/sass-icon.astro";
+import TailwindIcon from "../assets/tailwind-icon.astro";
 
 const techStackIcons = [
   {
@@ -22,72 +27,71 @@ const techStackIcons = [
     name: "Astro",
     icon: AstroIcon,
   },
-]
+  {
+    name: "Sass",
+    icon: SassIcon,
+  },
+  {
+    name: "CSS",
+    icon: CssIcon,
+  },
+  {
+    name: "Bootstrap",
+    icon: BootstrapIcon,
+  },
+  {
+    name: "Git",
+    icon: GitIcon,
+  },
+  {
+    name: "Next.js",
+    icon: Nextjs,
+  },
+];
 ---
 
 <section id="hero" class="space-y-4">
   <div class="space-y-2">
     <h1 class="scroll-m-20 tracking-tight">
-      meet <span class="font-semibold text-red-700 dark:text-red-400">ayie</span
-      >
-      <span
-        class="block font-semibold scroll-m-20 text-lg tracking-wide text-slate-600/90 dark:text-slate-300 uppercase"
-        >fullstack web developer</span
-      >
+      <span class="text-gray-600 dark:text-slate-300">meet</span>
+      <span class="font-extrabold">ayie</span>
+      <span class="block scroll-m-20 tracking-wide h2 text-slate-600/90 dark:text-slate-300">web developer</span>
     </h1>
   </div>
-  <p
-    class="leading-7 [&:not(:first-child)]:mt-6 font-medium text-base text-gray-600 dark:text-slate-300 italic"
-  >
-    I craft websites that move at the speed of thought. 🚀
+  <p class="text-lg text-gray-600 dark:text-slate-300">
+    A Philippines based Web Developer, crafting sleek, engaging interfaces and bring vibrant designs to life—building
+    web experiences that captivate and inspire.
   </p>
-  <small
+  <!-- <small
     class="text-sm text-slate-600 dark:text-slate-300 leading-none font-medium flex items-center [&:not(:first-child)]:mt-6"
   >
-    <span
-      ><Dot
-        stroke-width={6}
-        class="text-green-800 dark:text-green-400 animate-pulse"
-      /></span
-    > Currently working at &nbsp; <a
+    <span><Dot stroke-width={6} class="text-green-800 dark:text-green-400 animate-pulse" /></span> Currently working at &nbsp;
+    <a
       target="_blank"
       rel="noopener noreferrer nofollow"
       href="https://cenixweb.com/"
-      class="underline decoration-transparent hover:decoration-inherit text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-500 transition"
-      >Cenix</a
+      class="underline decoration-transparent hover:decoration-inherit text-orange-600 transition">Cenix</a
     >
-  </small>
+  </small> -->
 </section>
-<section class="mt-6">
-  <h2
-    class="h5 scroll-m-20 font-medium tracking-tight first:mt-0 flex items-center gap-2"
-  >
+<!-- <section class="mt-6">
+  <h2 class="h5 scroll-m-20 font-medium tracking-tight first:mt-0 flex items-center gap-2">
     <Binary />
-    <span class="tracking-wide"
-      ><span class="text-red-700 dark:text-red-400">tech</span> i use</span
-    >
+    <span class="tracking-wide"><span class="font-semibold">tech</span> i use</span>
   </h2>
   <ul class="grid grid-cols-2 gap-3 mt-4">
-    {techStackIcons.map((icon) => (
-      <li class="flex items-center gap-2">
-        <span
-          class="bg-gray-100 text-gray-800 font-medium text-xs inline-flex items-center px-2.5 py-0.5 rounded-full me-2"
-        >
-          <icon.icon class="w-3 h-3 me-1.5" aria-hidden="true" />
-          {icon.name}
-        </span>
-      </li>
-    ))}
-    <!-- <li class="flex items-center gap-2">
-      <span
-        class="bg-gray-100 text-gray-800 font-medium inline-flex items-center px-2.5 py-0.5 rounded-full me-2 dark:bg-gray-700 dark:text-gray-400"
-      >
-        <ReactIcon class="w-3 h-3 me-1.5" aria-hidden="true" />
-        React
-      </span>
-    </li> -->
+    {
+      techStackIcons.map((icon) => (
+        <li class="flex items-center gap-2">
+          <span class=" text-gray-800 dark:text-gray-400 font-medium text-xs inline-flex items-center px-2.5 py-0.5 rounded-full me-2">
+            <icon.icon class="w-5 h-5 me-1.5" aria-hidden="true" />
+            {icon.name}
+          </span>
+        </li>
+      ))
+    }
   </ul>
-</section>
+</section> -->
 
 <!-- <style scoped>
   /* Underline Reveal */
