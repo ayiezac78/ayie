@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import { Font } from "astro:assets";
 import Footer from "../components/base/footer.astro";
-import Nav from "../components/base/nav.astro";
+import Navbar from "../components/base/navbar.astro";
 
 interface MetaDataProps {
   title: string;
@@ -31,7 +31,7 @@ const canonicalURL = Astro.url;
     <title>{title}</title>
   </head>
   <body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">
-    <Nav />
+    <Navbar />
     <main class="flex-auto">
       <slot />
     </main>
