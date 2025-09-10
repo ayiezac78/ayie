@@ -1,4 +1,6 @@
 // import node from "@astrojs/node";
+
+import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 
@@ -6,11 +8,7 @@ import { defineConfig, fontProviders } from "astro/config";
 export default defineConfig({
   site: "https://ayie.github.io",
   base: "/",
-  output: "static",
-
-  vite: {
-    plugins: [tailwindcss()],
-  },
+  output: "server",
 
   prefetch: {
     prefetchAll: true,
@@ -33,8 +31,22 @@ export default defineConfig({
         cssVariable: "--font-roboto",
         styles: ["normal", "italic"],
         weights: ["100 700"],
-        fallbacks: ["Inter", "Helvetica Neue", "Helvetica", "Arial", "Arial Nova", "Nimbus Sans", "sans-serif"],
+        fallbacks: [
+          "Inter",
+          "Helvetica Neue",
+          "Helvetica",
+          "Arial",
+          "Arial Nova",
+          "Nimbus Sans",
+          "sans-serif",
+        ],
       },
     ],
+  },
+
+  adapter: cloudflare(),
+
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
