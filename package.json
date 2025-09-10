@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.3.0",
-    "@biomejs/biome": "2.2.2",
     "@types/bun": "latest",
     "astro-eslint-parser": "^1.2.2",
     "eslint": "^9.35.0",
