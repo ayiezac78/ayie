@@ -1,16 +1,14 @@
 ---
+import "../styles/global.css";
 import { Font } from "astro:assets";
 import { Head } from "astro-capo";
 import Footer from "../components/base/footer.astro";
 import Navbar from "../components/base/navbar.astro";
-import "../styles/global.css";
 
 interface MetaDataProps {
   title: string;
   description: string;
 }
-
-const preloadGlobalCss = new URL("../styles/global.css", Astro.url);
 
 const {
   title = "Ayie",
@@ -31,7 +29,6 @@ const canonicalURL = Astro.url;
     <Font cssVariable="--font-bebas-neue" preload />
     <Font cssVariable="--font-roboto" preload />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="preload" href={preloadGlobalCss} as="style" />
     <title>{title}</title>
   </Head>
   <body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">

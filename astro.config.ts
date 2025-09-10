@@ -1,6 +1,7 @@
 // import node from "@astrojs/node";
 
 import cloudflare from "@astrojs/cloudflare";
+import itsmatteomanfearlyHints from "@itsmatteomanf/astro-early-hints";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 
@@ -51,4 +52,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+
+  integrations: [itsmatteomanfearlyHints()],
 });
