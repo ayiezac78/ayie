@@ -37,7 +37,7 @@
 </style>
 
 <script is:inline>
-  function theme() {
+  const theme = (() => {
     const localStorageTheme = localStorage?.getItem("theme") ?? "";
     if (["dark", "light"].includes(localStorageTheme)) {
       return localStorageTheme;
@@ -46,7 +46,7 @@
       return "dark";
     }
     return "light";
-  }
+  })();
 
   theme === "light"
     ? document.documentElement.classList.remove("dark")
