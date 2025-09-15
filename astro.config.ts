@@ -13,7 +13,6 @@ export default defineConfig({
   },
   site: "https://ayie.github.io",
   base: "/",
-  output: "server",
 
   prefetch: {
     prefetchAll: true,
