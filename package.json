@@ -53,6 +53,9 @@
     "*": "bun lint"
   },
   "trustedDependencies": [
-    "@tailwindcss/oxide"
+    "@tailwindcss/oxide",
+    "esbuild",
+    "sharp",
+    "workerd"
   ]
 }

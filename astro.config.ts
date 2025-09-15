@@ -11,8 +11,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://ayie.github.io",
-  base: "/",
 
   prefetch: {
     prefetchAll: true,
