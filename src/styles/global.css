@@ -110,7 +110,6 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: var(--font-roboto);
   font-stretch: 100%;
   font-optical-sizing: auto;
 }
@@ -155,7 +154,9 @@ h5,
 h6 {
   text-wrap: balance;
   font-optical-sizing: auto;
-  font-family: var(--font-bebas-neue), sans-serif;
+  font-family:
+    var(--font-bebas-neue), "Impact", "Arial Narrow", "Helvetica Neue",
+    sans-serif;
 }
 
 #__next,
