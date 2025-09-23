@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "npx wrangler deploy",
+    "deploy": "bunx wrangler@latest deploy && rm -rf dist",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky"
@@ -23,8 +23,10 @@
     "@csswizardry/defaults.css": "^0.3.0",
     "@itsmatteomanf/astro-early-hints": "^0.4.1",
     "@lucide/astro": "^0.542.0",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.13",
-    "@types/react": "^19.1.12",
+    "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "astro": "^5.13.4",
     "astro-capo": "^0.0.1",
@@ -36,7 +38,8 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.13"
+    "tailwindcss": "^4.1.13",
+    "temporal-polyfill": "^0.3.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.3.0",

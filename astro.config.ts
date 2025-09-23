@@ -28,6 +28,22 @@ export default defineConfig({
         fallbacks: ["Impact", "Arial Narrow", "sans-serif"],
       },
       {
+        provider: fontProviders.fontshare(),
+        name: "General Sans",
+        cssVariable: "--font-general-sans",
+        styles: ["normal"],
+        weights: ["100 900"],
+        fallbacks: ["Impact", "Arial Narrow", "sans-serif"],
+      },
+      {
+        provider: fontProviders.fontshare(),
+        name: "Khand",
+        cssVariable: "--font-khand",
+        styles: ["normal"],
+        weights: ["100 900"],
+        fallbacks: ["Impact", "Arial Narrow", "sans-serif"],
+      },
+      {
         provider: fontProviders.google(),
         name: "Roboto",
         cssVariable: "--font-roboto",
