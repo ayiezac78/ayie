@@ -21,7 +21,7 @@ jobs:
         run: bun install
 
       - name: Run linter (oxlint)
-        run: bunx --yes oxlint@0.0.0 --deny-warnings
+        run: npx --yes oxlint@0.0.0 --deny-warnings
 
       # - name: Run tests
       #   run: npm test
