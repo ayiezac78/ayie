@@ -1,0 +1,31 @@
+name: Node.js CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Bun.js
+        uses: oven-sh/setup-bun@v2
+        with:
+          cache: 'bun'
+          bun-version: 'lts'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter (oxlint)
+        run: npx --yes oxlint@0.0.0 --deny-warnings
+
+      # - name: Run tests
+      #   run: npm test
+
+      # - name: Build project
+      #   run: npm run build

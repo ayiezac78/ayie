@@ -5,11 +5,12 @@ import react from "@astrojs/react";
 import itsmatteomanfearlyHints from "@itsmatteomanf/astro-early-hints";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
+import oxlintPlugin from "vite-plugin-oxlint";
 
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), oxlintPlugin()],
   },
 
   prefetch: {
