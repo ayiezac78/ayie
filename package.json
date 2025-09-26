@@ -62,7 +62,7 @@
     "vite-plugin-oxlint": "^1.4.0"
   },
   "lint-staged": {
-    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "bun lint"
+    "**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "bun lint:fix"
   },
   "trustedDependencies": [
     "@tailwindcss/oxide",
