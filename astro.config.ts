@@ -1,15 +1,17 @@
 // import node from "@astrojs/node";
 
 import cloudflare from "@astrojs/cloudflare";
+import react from "@astrojs/react";
 import itsmatteomanfearlyHints from "@itsmatteomanf/astro-early-hints";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
+import oxlintPlugin from "vite-plugin-oxlint";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://ayie.github.io",
-  base: "/",
-  output: "server",
+  vite: {
+    plugins: [tailwindcss(), oxlintPlugin()],
+  },
 
   prefetch: {
     prefetchAll: true,
@@ -24,7 +26,23 @@ export default defineConfig({
         cssVariable: "--font-bebas-neue",
         styles: ["normal"],
         weights: ["100 900"],
-        fallbacks: ["Bahnschrift", "Arial", "sans-serif"],
+        fallbacks: ["Impact", "Arial Narrow", "sans-serif"],
+      },
+      {
+        provider: fontProviders.fontshare(),
+        name: "General Sans",
+        cssVariable: "--font-general-sans",
+        styles: ["normal"],
+        weights: ["100 900"],
+        fallbacks: ["Impact", "Arial Narrow", "sans-serif"],
+      },
+      {
+        provider: fontProviders.fontshare(),
+        name: "Khand",
+        cssVariable: "--font-khand",
+        styles: ["normal"],
+        weights: ["100 900"],
+        fallbacks: ["Impact", "Arial Narrow", "sans-serif"],
       },
       {
         provider: fontProviders.google(),
@@ -32,15 +50,6 @@ export default defineConfig({
         cssVariable: "--font-roboto",
         styles: ["normal", "italic"],
         weights: ["100 700"],
-        fallbacks: [
-          "Inter",
-          "Helvetica Neue",
-          "Helvetica",
-          "Arial",
-          "Arial Nova",
-          "Nimbus Sans",
-          "sans-serif",
-        ],
       },
     ],
   },
@@ -49,9 +58,5 @@ export default defineConfig({
     imageService: "compile",
   }),
 
-  vite: {
-    plugins: [tailwindcss()],
-  },
-
-  integrations: [itsmatteomanfearlyHints()],
+  integrations: [itsmatteomanfearlyHints(), react()],
 });

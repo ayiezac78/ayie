@@ -1,5 +1,7 @@
 ---
 import ThemeIcon from "./theme-icon.astro";
+import { Button } from "@/components/ui/button";
+import { ChevronDown } from "@lucide/astro";
 
 const { pathname } = Astro.url;
 
@@ -10,31 +12,83 @@ const navLinks = [
   },
   {
     name: "insights",
-    url: "/insights",
+    url: "/insights/",
   },
   {
     name: "showcase",
-    url: "/showcase",
+    url: "/showcase/",
+  },
+  {
+    name: "routes",
   },
 ];
 ---
 
 <header class="flex items-center justify-between">
-  <nav class="font-medium flex gap-2">
-    {
-      navLinks.map(({ url, name }) => (
-        <a
-          href={url}
-          class={
-            pathname === url
-              ? ""
-              : "text-gray-600/90 hover:text-[#292929] transition-colors duration-200 ease-in-out dark:text-slate-300 dark:hover:text-slate-100"
-          }
-        >
-          {name}
-        </a>
-      ))
-    }
+  <nav>
+    <ul class="font-medium flex gap-2">
+      {
+        navLinks.map(({ url, name }) => (
+          <li>
+            {name === "routes" ? (
+              <Button id={name} variant="link" className="" asChild>
+                  <div class="dropdown relative group inline-block">
+                    <button
+                      class="flex items-center gap-1 dropbtn text-gray-600/90 transition-colors duration-200 ease-in-out
+                             dark:text-slate-300 group-hover:text-black dark:group-hover:text-slate-100
+                             focus:text-black dark:focus:text-slate-100"
+                    >
+                      {name}
+                      <!-- arrow icon -->
+                      <ChevronDown class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 group-focus:rotate-180" />
+                    </button>
+
+                    <ul
+                      class="dropdown-content absolute rounded-md dark:bg-stone-800 bg-gray-100 shadow-md px-2 py-1 text-sm dark:text-stone-50
+                             opacity-0 translate-y-1 pointer-events-none
+                             transition-all duration-200
+                             group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
+                             group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto
+                             grid gap-1"
+                    >
+                      <li><a href="#">photos</a></li>
+                      <li><a href="#">bookmarks</a></li>
+                      <li><a href="#">career</a></li>
+                    </ul>
+
+                  </div>
+
+                <!-- <a
+                  role="button"
+                  class="text-gray-600/90 hover:text-[#292929] transition-colors duration-200 ease-in-out dark:text-slate-300 dark:hover:text-slate-100 pointer-events-none"
+                  href="#routes"
+                >
+                  {name}
+                </a> -->
+              </Button>
+            ) : (
+              <Button variant="link" asChild>
+                <a
+                  href={url}
+                  class={
+                    pathname === url
+                      ? ""
+                      : "text-gray-600/90 hover:text-[#292929] transition-colors duration-200 ease-in-out dark:text-slate-300 dark:hover:text-slate-100"
+                  }
+                >
+                  {name}
+                </a>
+              </Button>
+            )}
+          </li>
+        ))
+      }
+    </ul>
   </nav>
+  <menu>
+      <li>
+
   <ThemeIcon />
+      </li>
+  </menu>
 </header>

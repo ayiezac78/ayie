@@ -1,66 +1,26 @@
 ---
 import { Binary, Dot } from "@lucide/astro";
-import AstroIcon from "../assets/astro-icon.astro";
-import BootstrapIcon from "../assets/bootstrap-icon.astro";
-import CssIcon from "../assets/css-icon.astro";
-import GitIcon from "../assets/git-icon.astro";
-import Nextjs from "../assets/nextjs.astro";
-import PhpIcon from "../assets/php-icon.astro";
-import ReactIcon from "../assets/react-icon.astro";
-import SassIcon from "../assets/sass-icon.astro";
-import TailwindIcon from "../assets/tailwind-icon.astro";
+import { Button } from "@/components/ui/button";
+import { Temporal } from "temporal-polyfill";
 
-const techStackIcons = [
-  {
-    name: "React",
-    icon: ReactIcon,
-  },
-  {
-    name: "Tailwind",
-    icon: TailwindIcon,
-  },
-  {
-    name: "PHP",
-    icon: PhpIcon,
-  },
-  {
-    name: "Astro",
-    icon: AstroIcon,
-  },
-  {
-    name: "Sass",
-    icon: SassIcon,
-  },
-  {
-    name: "CSS",
-    icon: CssIcon,
-  },
-  {
-    name: "Bootstrap",
-    icon: BootstrapIcon,
-  },
-  {
-    name: "Git",
-    icon: GitIcon,
-  },
-  {
-    name: "Next.js",
-    icon: Nextjs,
-  },
-];
+const date = Temporal.Now.zonedDateTimeISO().toPlainDate().toString();
 ---
 
 <section id="hero" class="space-y-4">
   <div class="space-y-2">
-    <h1 class="scroll-m-20 tracking-tight">
+    <h1 class="scroll-m-20 tracking-tight text-[min(12vw,72px)] font-semibold">
       <span class="text-gray-600 dark:text-slate-300">meet</span>
-      <span class="font-extrabold">ayie</span>
-      <span class="block scroll-m-20 tracking-wide h2 text-slate-600/90 dark:text-slate-300">web developer</span>
+      <span>ayie</span>
+      <span
+        class="block scroll-m-20 tracking-wide text-4xl text-slate-600/90 dark:text-slate-300"
+        >web developer</span
+      >
     </h1>
   </div>
   <p class="text-lg text-gray-600 dark:text-slate-300">
-    A Philippines based Web Developer, crafting sleek, engaging interfaces and bring vibrant designs to life—building
-    web experiences that captivate and inspire.
+    A Philippines based <strong class="font-semibold"> Web Developer</strong>,
+    crafting sleek, engaging interfaces and bring vibrant designs to
+    life—building web experiences that captivate and inspire.
   </p>
   <!-- <small
     class="text-sm text-slate-600 dark:text-slate-300 leading-none font-medium flex items-center [&:not(:first-child)]:mt-6"
@@ -74,25 +34,20 @@ const techStackIcons = [
     >
   </small> -->
 </section>
-<!-- <section class="mt-6">
-  <h2 class="h5 scroll-m-20 font-medium tracking-tight first:mt-0 flex items-center gap-2">
-    <Binary />
-    <span class="tracking-wide"><span class="font-semibold">tech</span> i use</span>
-  </h2>
-  <ul class="grid grid-cols-2 gap-3 mt-4">
-    {
-      techStackIcons.map((icon) => (
-        <li class="flex items-center gap-2">
-          <span class=" text-gray-800 dark:text-gray-400 font-medium text-xs inline-flex items-center px-2.5 py-0.5 rounded-full me-2">
-            <icon.icon class="w-5 h-5 me-1.5" aria-hidden="true" />
-            {icon.name}
-          </span>
-        </li>
-      ))
-    }
-  </ul>
-</section> -->
-
+<section class="mt-6">
+  <Button asChild variant="link">
+    <a href="#" class="text-sm flex items-center gap-3">
+      <span class="whitespace-nowrap text-pretty font-medium"
+        >Coffee & Code: My Portfolio</span
+      >
+      <hr class="h-[1px] w-full" />
+      <time
+        datetime={Temporal.Now.zonedDateTimeISO().toString()}
+        class="whitespace-nowrap text-gray-600 dark:text-slate-300">{date}</time
+      >
+    </a>
+  </Button>
+</section>
 <!-- <style scoped>
   /* Underline Reveal */
 .hvr-underline-reveal {
