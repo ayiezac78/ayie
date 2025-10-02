@@ -1,22 +1,46 @@
+---
+import '../assets/css/globals.css'
+import { Font } from 'astro:assets'
+import { Head } from 'astro-capo'
+import Footer from '@/components/base/Footer.astro'
+import Navbar from '@/components/base/Navbar.astro'
+
+interface MetaDataProps {
+  title: string
+  description: string
+}
+
+const {
+  title = 'Ayie',
+  description = 'Showcasing my work in design and development, blending creativity with functionality to deliver impactful projects and collaborations.',
+} = Astro.props as MetaDataProps
+
+const canonicalURL = Astro.url
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <Head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <Font cssVariable="--font-general-sans" preload />
+    <Font cssVariable="--font-khand" preload />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <script is:inline type="module">
+      if (!('anchorName' in document.documentElement.style)) {
+        import('https://unpkg.com/@oddbird/css-anchor-positioning')
+      }
+    </script>
+  </Head>
+  <body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">
+    <Navbar />
+    <main class="flex-auto">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
