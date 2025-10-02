@@ -1,14 +1,7 @@
 {
-  "name": "ayie",
-  "main": "./dist/_worker.js/index.js",
-  // Update to today's date
-  "compatibility_date": "2025-03-25",
-  "compatibility_flags": ["nodejs_compat"],
+  "name": "ayie-portfolio",
+  "compatibility_date": "2025-09-29",
   "assets": {
-    "binding": "ASSETS",
     "directory": "./dist"
-  },
-  "observability": {
-    "enabled": true
   }
 }
