@@ -8,13 +8,13 @@ const date = Temporal.Now.zonedDateTimeISO().toPlainDate().toString()
 
 <section id="hero" class="space-y-4">
   <div class="space-y-2">
-    <h1 class="scroll-m-20 tracking-tight text-[min(12vw,72px)] font-semibold">
-      <span class="text-gray-600 dark:text-slate-300">meet</span>
-      <span>ayie</span>
-      <span class="block scroll-m-20 tracking-wide text-4xl text-slate-600/90 dark:text-slate-300">web developer</span>
+    <h1 class="scroll-m-20 tracking-tight text-[min(12vw,72px)] font-medium">
+      <span class="text-muted-foreground">meet</span>
+      <span class="text-primary">ayie</span>
+      <span class="block scroll-m-20 tracking-wide text-4xl text-muted-foreground">web developer</span>
     </h1>
   </div>
-  <p class="text-lg text-gray-600 dark:text-slate-300">
+  <p class="leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground">
     A Philippines based <strong class="font-semibold"> Web Developer</strong>, crafting sleek, engaging interfaces and
     bring vibrant designs to life—building web experiences that captivate and inspire.
   </p>
@@ -32,7 +32,7 @@ const date = Temporal.Now.zonedDateTimeISO().toPlainDate().toString()
 </section>
 <section class="mt-6">
   <Button asChild variant="link">
-    <a href="#" class="text-sm flex items-center gap-3">
+    <a href="/insights/coffee-and-code-my-portfolio" class="text-sm flex items-center gap-3">
       <span class="whitespace-nowrap text-pretty font-medium">Coffee & Code: My Portfolio</span>
       <hr class="h-[1px] w-full" />
       <time

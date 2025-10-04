@@ -2,7 +2,6 @@
 import ThemeIcon from '@/components/base/ThemeIcon.astro'
 import { Button } from '@/components/ui/button'
 import { ChevronDown } from '@lucide/astro'
-import { Link } from 'astro-link'
 
 const { pathname } = Astro.url
 const navLinks = [
@@ -34,9 +33,9 @@ const navLinks = [
               <Button id={name} variant="link" className="" asChild>
                 <div class="dropdown relative group inline-block">
                   <button
-                    class="flex items-center gap-1 dropbtn text-gray-400 transition-colors duration-200 ease-in-out
-                             dark:text-slate-300 group-hover:text-black dark:group-hover:text-slate-100
-                             focus:text-black dark:focus:text-slate-100"
+                    class="flex items-center gap-1 dropbtn text-muted-foreground transition-colors duration-200 ease-in-out
+                              group-hover:text-primary
+                             focus:text-primary"
                   >
                     {name}
                     <ChevronDown class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 group-focus:rotate-180" />
@@ -51,29 +50,29 @@ const navLinks = [
                              grid gap-1 z-10"
                   >
                     <li>
-                      <Link href="#">photos</Link>
+                      <a href="#">photos</a>
                     </li>
                     <li>
-                      <Link href="#">bookmarks</Link>
+                      <a href="#">bookmarks</a>
                     </li>
                     <li>
-                      <Link href="#">career</Link>
+                      <a href="#">career</a>
                     </li>
                   </ul>
                 </div>
               </Button>
             ) : (
               <Button variant="link" asChild>
-                <Link
+                <a
                   href={url}
                   class={
                     pathname === url
                       ? ''
-                      : 'text-gray-600/90 hover:text-[#292929] transition-colors duration-200 ease-in-out dark:text-slate-300 dark:hover:text-slate-100'
+                      : 'text-muted-foreground hover:text-primary transition-colors duration-200 ease-in-out'
                   }
                 >
                   {name}
-                </Link>
+                </a>
               </Button>
             )}
           </li>

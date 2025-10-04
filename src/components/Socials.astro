@@ -1,34 +1,42 @@
 ---
-import { ArrowUpRight } from '@lucide/astro'
+import Github from '@/assets/svg/icons/logos/github.astro'
+import Gmail from '@/assets/svg/icons/logos/gmail.astro'
+import Linkedin from '@/assets/svg/icons/logos/linkedin.astro'
+import Logo from '@/assets/svg/icons/logos/logo.astro'
 
 const socialsLinks = [
   {
     name: 'github',
+    icon: Github,
     url: 'https://github.com/ayiezac78',
   },
   {
     name: 'email',
-    url: 'https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=admaniago01@gmail.com',
+    icon: Gmail,
+    url: 'mailto:admaniago01@gmail.com',
   },
   {
     name: 'linkedin',
+    icon: Linkedin,
     url: 'https://www.linkedin.com/in/ayie',
   },
 ]
 ---
 
-<div class="flex gap-2 mt-6">
-  {
-    socialsLinks.map((link) => (
-      <a
-        target="_blank"
-        rel="noopener noreferrer nofollow"
-        href={link.url}
-        class="flex items-center gap-1 text-sm leading-none font-semibold text-gray-600/90 hover:text-[#292929] transition-colors duration-200 ease-in-out dark:text-slate-300 dark:hover:text-slate-100"
-      >
-        <ArrowUpRight size={18} aria-hidden="true" />
-        {link.name}
-      </a>
-    ))
-  }
-</div>
+<footer class="p-4 flex justify-between w-full">
+  <div class="flex gap-3 justify-center">
+    {
+      socialsLinks.map((link) => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label={`Visit my ${link.name}`}
+          class="flex items-center gap-1 text-sm font-semibold text-gray-600/90 hover:text-black dark:text-slate-300 dark:hover:text-slate-100 transition-colors duration-200 ease-in-out group"
+        >
+          <link.icon class="w-5 h-5 me-1.5" aria-hidden="true" />
+        </a>
+      ))
+    }
+  </div>
+</footer>
