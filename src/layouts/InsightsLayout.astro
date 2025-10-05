@@ -1,35 +1,32 @@
 ---
 import '../assets/css/globals.css'
-import { Font } from 'astro:assets'
-import { Head } from 'astro-capo'
 import Footer from '@/components/base/Footer.astro'
 import Navbar from '@/components/base/Navbar.astro'
+import type { MarkdownLayoutProps } from 'astro'
+import { Head } from 'astro-capo'
+import { Font } from 'astro:assets'
 
-interface MetaDataProps {
+type Props = MarkdownLayoutProps<{
   title: string
-  description: string
-}
+  author: string
+  date: string
+}>
 
-const {
-  title = 'Ayie',
-  description = 'Showcasing my work in design and development, blending creativity with functionality to deliver impactful projects and collaborations.',
-} = Astro.props as MetaDataProps
-
-const canonicalURL = Astro.url
+const { frontmatter, url } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
   <Head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <!-- <meta name="description" content={description} /> -->
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <Font cssVariable="--font-khand" preload />
     <Font cssVariable="--font-supreme" preload />
-    <link rel="canonical" href={canonicalURL} />
-    <title>{title}</title>
+    <link rel="canonical" href={Astro.site ? new URL(url ?? '/', Astro.site).pathname : (url ?? '/')} />
+    <title>{frontmatter.title}</title>
     <script is:inline type="module">
       if (!('anchorName' in document.documentElement.style)) {
         import('https://unpkg.com/@oddbird/css-anchor-positioning')
@@ -38,7 +35,11 @@ const canonicalURL = Astro.url
   </Head>
   <body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">
     <Navbar />
-    <main class="flex-auto">
+    <main
+      class="flex-auto prose dark:prose-invert
+  prose-h1:font-semibold prose-h2:font-semibold prose-headings:h1 prose-headings:h2 prose-h1:text-primary prose-h2:text-primary prose-h2:scroll-m-20 prose-h2:pb-2 prose-h2:tracking-tight prose-h2:first:mt-0
+  prose-a:text-blue-600 prose-p:text-pretty prose-img:rounded-xl"
+    >
       <slot />
     </main>
     <Footer />

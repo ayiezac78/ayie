@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -126,7 +127,7 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: var(--font-general-sans);
+  font-family: var(--font-supreme);
   font-stretch: 100%;
   font-optical-sizing: auto;
 }
@@ -183,17 +184,21 @@ p {
   text-wrap: pretty;
 }
 
-h1,
 h2,
+.h2,
+h1,
+.h1,
 h3,
+.h3,
 h4,
+.h4,
 h5,
-h6 {
+.h5,
+h6,
+.h6 {
   text-wrap: balance;
   font-optical-sizing: auto;
-  /* font-family: var(--font-khand), 'Impact', 'Arial Narrow', 'Helvetica Neue', sans-serif; */
-  font-family:
-    Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+  font-family: var(--font-khand);
 }
 
 #__next,
@@ -248,4 +253,8 @@ textarea:not([rows]) {
 
 :target {
   scroll-margin-block: 5ex;
+}
+
+.font-supreme {
+  font-family: var(--font-supreme);
 }
