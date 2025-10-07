@@ -4,6 +4,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-khand: var(--font-khand);
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -198,7 +202,6 @@ h6,
 .h6 {
   text-wrap: balance;
   font-optical-sizing: auto;
-  font-family: var(--font-khand);
 }
 
 #__next,

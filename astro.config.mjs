@@ -4,6 +4,8 @@ import itsmatteomanfearlyHints from '@itsmatteomanf/astro-early-hints'
 import tailwindcss from '@tailwindcss/vite'
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config'
+
+import { remarkReadingTime } from './remark-reading-time.ts'
 // import oxlintPlugin from 'vite-plugin-oxlint'
 
 // https://astro.build/config
@@ -19,6 +21,7 @@ export default defineConfig({
   },
   integrations: [react(), itsmatteomanfearlyHints()],
   experimental: {
+    clientPrerender: true,
     fonts: [
       {
         provider: fontProviders.fontshare(),
@@ -37,5 +40,8 @@ export default defineConfig({
         // fallbacks: ['Impact', 'Arial Narrow', 'Helvetica Neue', 'sans-serif'],
       },
     ],
+  },
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
   },
 })

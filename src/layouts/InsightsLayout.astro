@@ -3,16 +3,55 @@ import '../assets/css/globals.css'
 import Footer from '@/components/base/Footer.astro'
 import Navbar from '@/components/base/Navbar.astro'
 import type { MarkdownLayoutProps } from 'astro'
+import { Temporal } from 'temporal-polyfill'
 import { Head } from 'astro-capo'
 import { Font } from 'astro:assets'
+import { Dot } from '@lucide/astro'
+import type { StringSchema } from 'node_modules/astro/dist/env/schema'
 
 type Props = MarkdownLayoutProps<{
   title: string
   author: string
-  date: string
+  date: StringSchema
+  minutesRead: string
 }>
 
-const { frontmatter, url } = Astro.props
+const { frontmatter, url } = Astro.props as unknown as {
+  frontmatter: { title: string; author: string; date: string | Date }
+  url?: string
+}
+
+let dateObj: Temporal.ZonedDateTime
+
+if (typeof frontmatter.date === 'string') {
+  const parsed = new Date(frontmatter.date)
+  if (isNaN(parsed.getTime())) {
+    throw new Error(`Invalid date format: ${frontmatter.date}`)
+  }
+  dateObj = Temporal.ZonedDateTime.from({
+    year: parsed.getFullYear(),
+    month: parsed.getMonth() + 1,
+    day: parsed.getDate(),
+    timeZone: 'Asia/Manila',
+  })
+} else {
+  dateObj = Temporal.ZonedDateTime.from({
+    year: frontmatter.date.getFullYear(),
+    month: frontmatter.date.getMonth() + 1,
+    day: frontmatter.date.getDate(),
+    timeZone: 'Asia/Manila',
+  })
+}
+
+// Format manually using Intl.DateTimeFormat
+const formattedDate = new Intl.DateTimeFormat('en-PH', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'Asia/Manila',
+}).format(new Date(dateObj.epochMilliseconds))
+
+const { minutesRead } = Astro.props.frontmatter
 ---
 
 <!doctype html>
@@ -37,9 +76,16 @@ const { frontmatter, url } = Astro.props
     <Navbar />
     <main
       class="flex-auto prose dark:prose-invert
-  prose-h1:font-semibold prose-h2:font-semibold prose-headings:h1 prose-headings:h2 prose-h1:text-primary prose-h2:text-primary prose-h2:scroll-m-20 prose-h2:pb-2 prose-h2:tracking-tight prose-h2:first:mt-0
-  prose-a:text-blue-600 prose-p:text-pretty prose-img:rounded-xl"
+  prose-h1:font-semibold prose-h2:font-semibold prose-headings:h1 prose-headings:h2 prose-h1:text-primary prose-h2:text-secondary-foreground prose-h2:scroll-m-20 prose-h2:pb-2 prose-h2:tracking-tight prose-h2:first:mt-0"
     >
+      <h1>{frontmatter.title}</h1>
+      <div class="flex items-center text-muted-foreground text-sm">
+        <time datetime={dateObj.toPlainDate().toString()}>
+          {formattedDate}
+        </time>
+        <Dot />
+        <span>{minutesRead}</span>
+      </div>
       <slot />
     </main>
     <Footer />
