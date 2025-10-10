@@ -6,8 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "lint": "npx oxlint && npx eslint",
-    "deploy": "npx wrangler@latest deploy",
+    "lint": "bunx oxlint && bunx eslint",
+    "deploy": "bunx wrangler@latest deploy",
     "astro": "astro",
     "prepare": "husky"
   },
@@ -25,6 +25,7 @@
     "astro": "^5.14.1",
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",
+    "astro-loading-indicator": "^0.7.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.544.0",

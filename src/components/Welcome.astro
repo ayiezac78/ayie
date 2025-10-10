@@ -1,10 +1,9 @@
 ---
 import { Button } from '@/components/ui/button'
-// import { Temporal } from 'temporal-polyfill'
 
-// const date = Temporal.Now.zonedDateTimeISO().toPlainDate().toString()
-
-const insights = Object.values(import.meta.glob('../pages/insights/*.md', { eager: true }))
+const insights: { url: string; frontmatter: { title: string; date: string } }[] = Object.values(
+  import.meta.glob('../pages/insights/*.md', { eager: true }),
+)
 ---
 
 <section id="hero" class="space-y-4">
@@ -24,16 +23,23 @@ const insights = Object.values(import.meta.glob('../pages/insights/*.md', { eage
   <ul class="my-6 ml-6 list-none [&>li]:mt-2">
     {
       insights.map((insight, _idx) => {
-        const item = insight as { url: string; frontmatter: { title: string; date: string } }
         return (
-          <Button asChild variant="link">
-            <a href={`${item.url}`} class="text-sm flex items-center gap-3">
-              <time datetime={`${item.frontmatter.date}`} class="whitespace-nowrap text-muted-foreground text-sm">
-                {item.frontmatter.date}
-              </time>
-              <p class="text-base font-semibold text-primary">{item.frontmatter.title}</p>
-            </a>
-          </Button>
+          <li>
+            <Button asChild variant="link">
+              <a href={`${insight.url}`} class="text-sm flex items-center gap-3">
+                <time
+                  datetime={`${insight.frontmatter.date}`}
+                  class="whitespace-nowrap text-muted-foreground text-sm"
+                  transition:name={`post-date`}
+                >
+                  {insight.frontmatter.date}
+                </time>
+                <p class="text-base font-semibold text-primary" transition:name={`post-title`}>
+                  {insight.frontmatter.title}
+                </p>
+              </a>
+            </Button>
+          </li>
         )
       })
     }
