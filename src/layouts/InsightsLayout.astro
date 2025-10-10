@@ -1,59 +1,59 @@
 ---
-import '../assets/css/globals.css'
-import Footer from '@/components/base/Footer.astro'
-import Navbar from '@/components/base/Navbar.astro'
-import type { MarkdownLayoutProps } from 'astro'
-import { Temporal } from 'temporal-polyfill'
-import { Head } from 'astro-capo'
-import { Font } from 'astro:assets'
-import { Dot } from '@lucide/astro'
-import { ClientRouter } from 'astro:transitions'
-import LoadingIndicator from 'astro-loading-indicator/component'
-import ThemeIcon from '@/components/base/ThemeIcon.astro'
+import "../assets/css/globals.css";
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+import { Dot } from "@lucide/astro";
+import type { MarkdownLayoutProps } from "astro";
+import { Head } from "astro-capo";
+import LoadingIndicator from "astro-loading-indicator/component";
+import { Temporal } from "temporal-polyfill";
+import Footer from "@/components/base/Footer.astro";
+import Navbar from "@/components/base/Navbar.astro";
+import ThemeIcon from "@/components/base/ThemeIcon.astro";
 
 type Props = MarkdownLayoutProps<{
-  title: string
-  author: string
-  date: string
-  minutesRead: string
-}>
+	title: string;
+	author: string;
+	date: string;
+	minutesRead: string;
+}>;
 
 const { frontmatter, url } = Astro.props as unknown as {
-  frontmatter: { title: string; author: string; date: string | Date }
-  url?: string
-}
+	frontmatter: { title: string; author: string; date: string | Date };
+	url?: string;
+};
 
-let dateObj: Temporal.ZonedDateTime
+let dateObj: Temporal.ZonedDateTime;
 
-if (typeof frontmatter.date === 'string') {
-  const parsed = new Date(frontmatter.date)
-  if (isNaN(parsed.getTime())) {
-    throw new Error(`Invalid date format: ${frontmatter.date}`)
-  }
-  dateObj = Temporal.ZonedDateTime.from({
-    year: parsed.getFullYear(),
-    month: parsed.getMonth() + 1,
-    day: parsed.getDate(),
-    timeZone: 'Asia/Manila',
-  })
+if (typeof frontmatter.date === "string") {
+	const parsed = new Date(frontmatter.date);
+	if (Number.isNaN(parsed.getTime())) {
+		throw new Error(`Invalid date format: ${frontmatter.date}`);
+	}
+	dateObj = Temporal.ZonedDateTime.from({
+		year: parsed.getFullYear(),
+		month: parsed.getMonth() + 1,
+		day: parsed.getDate(),
+		timeZone: "Asia/Manila",
+	});
 } else {
-  dateObj = Temporal.ZonedDateTime.from({
-    year: frontmatter.date.getFullYear(),
-    month: frontmatter.date.getMonth() + 1,
-    day: frontmatter.date.getDate(),
-    timeZone: 'Asia/Manila',
-  })
+	dateObj = Temporal.ZonedDateTime.from({
+		year: frontmatter.date.getFullYear(),
+		month: frontmatter.date.getMonth() + 1,
+		day: frontmatter.date.getDate(),
+		timeZone: "Asia/Manila",
+	});
 }
 
 // Format manually using Intl.DateTimeFormat
-const formattedDate = new Intl.DateTimeFormat('en-PH', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  timeZone: 'Asia/Manila',
-}).format(new Date(dateObj.epochMilliseconds))
+const formattedDate = new Intl.DateTimeFormat("en-PH", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+	timeZone: "Asia/Manila",
+}).format(new Date(dateObj.epochMilliseconds));
 
-const { minutesRead } = Astro.props.frontmatter
+const { minutesRead } = Astro.props.frontmatter;
 ---
 
 <!doctype html>

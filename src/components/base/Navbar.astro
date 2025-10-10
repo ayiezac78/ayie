@@ -1,25 +1,25 @@
 ---
-import { Button } from '@/components/ui/button'
-import { ChevronDown } from '@lucide/astro'
+import { ChevronDown } from "@lucide/astro";
+import { Button } from "@/components/ui/button";
 
-const { pathname } = Astro.url
+const { pathname } = Astro.url;
 const navLinks = [
-  {
-    name: 'ayie',
-    url: '/',
-  },
-  {
-    name: 'insights',
-    url: '/insights/',
-  },
-  {
-    name: 'showcase',
-    url: '/showcase/',
-  },
-  {
-    name: 'routes',
-  },
-]
+	{
+		name: "ayie",
+		url: "/",
+	},
+	{
+		name: "insights",
+		url: "/insights/",
+	},
+	{
+		name: "showcase",
+		url: "/showcase/",
+	},
+	{
+		name: "routes",
+	},
+];
 ---
 
 <header class="flex items-center justify-between">

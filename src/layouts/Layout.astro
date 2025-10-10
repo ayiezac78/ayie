@@ -1,24 +1,24 @@
 ---
-import '../assets/css/globals.css'
-import { Font } from 'astro:assets'
-import { Head } from 'astro-capo'
-import Footer from '@/components/base/Footer.astro'
-import Navbar from '@/components/base/Navbar.astro'
-import { ClientRouter } from 'astro:transitions'
-import LoadingIndicator from 'astro-loading-indicator/component'
-import ThemeIcon from '@/components/base/ThemeIcon.astro'
+import "../assets/css/globals.css";
+import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
+import { Head } from "astro-capo";
+import LoadingIndicator from "astro-loading-indicator/component";
+import Footer from "@/components/base/Footer.astro";
+import Navbar from "@/components/base/Navbar.astro";
+import ThemeIcon from "@/components/base/ThemeIcon.astro";
 
 interface MetaDataProps {
-  title: string
-  description: string
+	title: string;
+	description: string;
 }
 
 const {
-  title = 'Ayie',
-  description = 'Showcasing my work in design and development, blending creativity with functionality to deliver impactful projects and collaborations.',
-} = Astro.props as MetaDataProps
+	title = "Ayie",
+	description = "Showcasing my work in design and development, blending creativity with functionality to deliver impactful projects and collaborations.",
+} = Astro.props as MetaDataProps;
 
-const canonicalURL = Astro.url
+const canonicalURL = Astro.url;
 ---
 
 <!doctype html>

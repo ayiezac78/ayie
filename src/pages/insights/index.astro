@@ -1,8 +1,10 @@
 ---
-import { Button } from '@/components/ui/button'
-import Layout from '@/layouts/Layout.astro'
+import { Button } from "@/components/ui/button";
+import Layout from "@/layouts/Layout.astro";
 
-const insights = Object.values(import.meta.glob('../insights/*.md', { eager: true }))
+const insights = Object.values(
+	import.meta.glob("../insights/*.md", { eager: true }),
+);
 ---
 
 <Layout title="Ayie | Insights" description="This is where i share my thoughts about design and development">

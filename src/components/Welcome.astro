@@ -1,9 +1,12 @@
 ---
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button";
 
-const insights: { url: string; frontmatter: { title: string; date: string } }[] = Object.values(
-  import.meta.glob('../pages/insights/*.md', { eager: true }),
-)
+const insights: {
+	url: string;
+	frontmatter: { title: string; date: string };
+}[] = Object.values(
+	import.meta.glob("../pages/insights/*.md", { eager: true }),
+);
 ---
 
 <section id="hero" class="space-y-4">
