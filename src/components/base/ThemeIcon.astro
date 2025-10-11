@@ -2,14 +2,22 @@
 import { Kbd } from "@/components/ui/kbd";
 ---
 
-<div class="fixed bottom-0 right-0 m-4 bg-primary-foreground/30 backdrop-blur-xs rounded-full">
+<div
+  class="fixed bottom-0 right-0 m-4 bg-primary-foreground/30 backdrop-blur-xs rounded-full"
+>
   <button
     class="rounded-full relative p-1 cursor-pointer flex transition duration-300 ease-in-out hover:ring-2 hover:ring-black-500 focus:ring-2 focus:ring-black-500 transform [transform:perspective(1px)_translateZ(0)] motion-reduce:transform-none"
     type="button"
     id="themeToggle"
     aria-label="Toggle theme"
   >
-    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="peer">
+    <svg
+      width="24"
+      height="24"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="peer"
+    >
       <path
         id="sun"
         d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"
@@ -24,7 +32,7 @@ import { Kbd } from "@/components/ui/kbd";
       >Theme [T]</Kbd
     >
   </button>
-</div>    
+</div>
 <style>
   #themeToggle {
     border: 0;
@@ -59,32 +67,35 @@ import { Kbd } from "@/components/ui/kbd";
 <script is:inline>
   function updateTheme() {
     const theme =
-      localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : null)
+      localStorage.getItem("theme") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : null);
 
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove("dark");
     }
   }
 
-  document.addEventListener('astro:page-load', () => {
-    const themeToggle = document.getElementById('themeToggle')
+  document.addEventListener("astro:page-load", () => {
+    const themeToggle = document.getElementById("themeToggle");
 
     function handleToggleClick() {
-      const element = document.documentElement
-      const isDark = element.classList.toggle('dark')
-      localStorage.setItem('theme', isDark ? 'dark' : null)
+      const element = document.documentElement;
+      const isDark = element.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : null);
     }
 
-    themeToggle?.addEventListener('click', handleToggleClick)
-    document.body.addEventListener('keydown', (e) => {
-      if (e.key.toLowerCase() === 't') {
-        handleToggleClick()
+    themeToggle?.addEventListener("click", handleToggleClick);
+    document.body.addEventListener("keydown", (e) => {
+      if (e.key.toLowerCase() === "t") {
+        handleToggleClick();
       }
-    })
-  })
+    });
+  });
 
   // Update theme after page transitions
-  document.addEventListener('astro:after-swap', updateTheme)
+  document.addEventListener("astro:after-swap", updateTheme);
 </script>

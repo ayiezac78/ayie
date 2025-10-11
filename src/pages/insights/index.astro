@@ -7,13 +7,19 @@ const insights = Object.values(
 );
 ---
 
-<Layout title="Ayie | Insights" description="This is where i share my thoughts about design and development">
+<Layout
+  title="Ayie | Insights"
+  description="This is where i share my thoughts about design and development"
+>
   <section>
     <h1 class="text-5xl font-semibold tracking-tight scroll-m-20">insights</h1>
     <ul class="my-6 ml-6 list-none [&>li]:mt-2">
       {
         insights.map((insight, _idx) => {
-          const item = insight as { url: string; frontmatter: { title: string; date: string } }
+          const item = insight as {
+            url: string;
+            frontmatter: { title: string; date: string };
+          };
           return (
             <Button asChild variant="link">
               <a href={`${item.url}`} class="text-sm flex items-center gap-3">
@@ -24,12 +30,15 @@ const insights = Object.values(
                 >
                   {item.frontmatter.date}
                 </time>
-                <p class="text-base font-semibold text-primary" transition:name={`post-title`}>
+                <p
+                  class="text-base font-semibold text-primary"
+                  transition:name={`post-title`}
+                >
                   {item.frontmatter.title}
                 </p>
               </a>
             </Button>
-          )
+          );
         })
       }
     </ul>

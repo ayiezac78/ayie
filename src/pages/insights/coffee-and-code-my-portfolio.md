@@ -13,7 +13,7 @@ Building a web portfolio isn't just about putting projects online—it's about c
 
 ## How I Shaped My Design
 
-Every project starts out a little messy. I’m not a designer by trade, but I love using my imagination to sketch and experiment with a minimalistic style. There’s always a bit of trial and error — exploring different layouts, typography, and color palettes until I find that sweet spot between clean, modern design and personal expression.
+Every project starts out a little messy. I'm not a designer by trade, but I love using my imagination to sketch and experiment with a minimalistic style. There's always a bit of trial and error — exploring different layouts, typography, and color palettes until I find that sweet spot between clean, modern design and personal expression.
 
 ## Tools I Use
 
@@ -29,4 +29,4 @@ Once the structure was solid, I focused on polish. Animations, hover effects, su
 
 ## What I Learned Along the Way
 
-This project taught me more than just technical skills. I learned how important it is to design with intention, to keep things simple, and to let personality shine through the work. My portfolio isn’t just a site—it’s a reflection of my growth, and it will keep evolving as I do.
+This project taught me more than just technical skills. I learned how important it is to design with intention, to keep things simple, and to let personality shine through the work. My portfolio isn't just a site—it's a reflection of my growth, and it will keep evolving as I do.

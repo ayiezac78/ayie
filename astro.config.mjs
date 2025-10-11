@@ -1,25 +1,39 @@
-import cloudflare from "@astrojs/cloudflare";
 import react from "@astrojs/react";
+import vercel from "@astrojs/vercel";
 import itsmatteomanfearlyHints from "@itsmatteomanf/astro-early-hints";
 import tailwindcss from "@tailwindcss/vite";
-// @ts-check
 import { defineConfig, fontProviders } from "astro/config";
-
 import { remarkReadingTime } from "./remark-reading-time.ts";
-// import oxlintPlugin from 'vite-plugin-oxlint'
 
-// https://astro.build/config
 export default defineConfig({
 	vite: {
 		plugins: [tailwindcss()],
 	},
-	adapter: cloudflare({
-		imageService: "compile",
-	}),
+
 	prefetch: {
 		prefetchAll: true,
 	},
-	integrations: [react(), itsmatteomanfearlyHints()],
+
+	integrations: [
+		react(),
+		itsmatteomanfearlyHints(),
+		(await import("@playform/compress")).default({
+			HTML: {
+				"html-minifier-terser": {
+					collapseWhitespace: true,
+					removeComments: true,
+					removeRedundantAttributes: true,
+					minifyCSS: true,
+					minifyJS: true,
+					useShortDoctype: true,
+					conservativeCollapse: true,
+					sortAttributes: true,
+					sortClassName: true,
+				},
+			},
+		}),
+	],
+
 	experimental: {
 		clientPrerender: true,
 		fonts: [
@@ -41,7 +55,10 @@ export default defineConfig({
 			},
 		],
 	},
+
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 	},
+
+	adapter: vercel(),
 });
