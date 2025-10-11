@@ -7,7 +7,6 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"lint": "bunx biome check --write",
-		"deploy": "vercel deploy --prebuilt",
 		"astro": "astro",
 		"prepare": "husky"
 	},

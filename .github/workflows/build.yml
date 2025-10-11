@@ -32,9 +32,3 @@ jobs:
 
       # - name: Run tests
       #   run: npm test
-
-      - name: Build project
-        run: bun run build --if-present
-
-      - name: Deploy project
-        run: bun run deploy
