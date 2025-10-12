@@ -1,5 +1,5 @@
 ---
-import { ChevronDown } from "@lucide/astro";
+import { Briefcase, ImagesIcon } from "@lucide/astro";
 import { Button } from "@/components/ui/button";
 
 const { pathname } = Astro.url;
@@ -16,19 +16,19 @@ const navLinks = [
 		name: "showcase",
 		url: "/showcase/",
 	},
-	{
-		name: "routes",
-	},
+	// {
+	//   name: "routes",
+	// },
 ];
 ---
 
 <header class="flex items-center justify-between">
-  <nav>
+  <nav class="flex items-center justify-between w-full">
     <ul class="font-medium flex gap-2">
       {
         navLinks.map(({ url, name }) => (
           <li>
-            {name === "routes" ? (
+            {/* {name === "routes" ? (
               <Button id={name} variant="link" className="" asChild>
                 <div class="dropdown relative group inline-block">
                   <button
@@ -60,23 +60,41 @@ const navLinks = [
                   </ul>
                 </div>
               </Button>
-            ) : (
-              <Button variant="link" asChild>
-                <a
-                  href={url}
-                  class={
-                    pathname === url
-                      ? ""
-                      : "text-muted-foreground hover:text-primary transition-colors duration-200 ease-in-out"
-                  }
-                >
-                  {name}
-                </a>
-              </Button>
-            )}
+            ) : ( */}
+            <Button variant="link" asChild>
+              <a
+                href={url}
+                class={
+                  pathname === url
+                    ? ""
+                    : "text-muted-foreground hover:text-primary transition-colors duration-200 ease-in-out"
+                }
+              >
+                {name}
+              </a>
+            </Button>
+            {/* )} */}
           </li>
         ))
       }
+    </ul>
+    <ul class="flex items-center gap-2">
+      <li>
+        <a href="/photos" title="photos">
+          <ImagesIcon
+            size={20}
+            class="text-muted-foreground hover:text-primary"
+          />
+        </a>
+      </li>
+      <li>
+        <a href="/career" title="career">
+          <Briefcase
+            size={20}
+            class="text-muted-foreground hover:text-primary"
+          />
+        </a>
+      </li>
     </ul>
   </nav>
 </header>

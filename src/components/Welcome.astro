@@ -1,4 +1,5 @@
 ---
+import { ExternalLink } from "@lucide/astro";
 import { Button } from "@/components/ui/button";
 
 const insights: {
@@ -27,6 +28,21 @@ const insights: {
     crafting sleek, engaging interfaces and bring vibrant designs to
     life—building web experiences that captivate and inspire.
   </p>
+
+  <p
+    class="text-muted-foreground leading-7 [&:not(:first-child)]:mt-6 text-lg flex gap-2 items-baseline"
+  >
+    <span> Currently work in </span>
+    <a
+      href="https://cenixweb.com/"
+      class="hover:text-primary transition-colors flex gap-1 items-center"
+      target="_blank"
+      rel="nofollow noreferrer"
+    >
+      <strong> Cenix </strong>
+      <ExternalLink size={22} />
+    </a>
+  </p>
 </section>
 <section class="mt-6">
   <ul class="my-6 ml-6 list-none [&>li]:mt-2">
@@ -37,7 +53,7 @@ const insights: {
             <Button asChild variant="link">
               <a
                 href={`${insight.url}`}
-                class="text-sm flex items-center gap-3"
+                class="text-sm flex items-baseline gap-3"
               >
                 <time
                   datetime={`${insight.frontmatter.date}`}

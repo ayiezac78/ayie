@@ -24,6 +24,20 @@ const canonicalURL = Astro.url;
 <!doctype html>
 <html lang="en">
   <Head>
+    <script is:inline>
+      const theme = (() => {
+        if (localStorage?.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return null;
+      })();
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
@@ -38,20 +52,6 @@ const canonicalURL = Astro.url;
     <script is:inline type="module">
       if (!("anchorName" in document.documentElement.style)) {
         import("https://unpkg.com/@oddbird/css-anchor-positioning");
-      }
-    </script>
-    <script is:inline>
-      const theme = (() => {
-        if (localStorage?.getItem("theme")) {
-          return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return null;
-      })();
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
       }
     </script>
   </Head>

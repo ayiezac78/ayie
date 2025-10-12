@@ -125,9 +125,12 @@
 	}
 }
 
+html,body{
+	height: 100vh;
+}
+
 body {
 	@apply bg-background text-foreground;
-	min-height: 100vh;
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	font-family: var(--font-supreme);
