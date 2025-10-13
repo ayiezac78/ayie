@@ -1,10 +1,6 @@
 ---
-import { Button } from "@/components/ui/button";
+import PostLists from "@/components/PostLists.astro";
 import Layout from "@/layouts/Layout.astro";
-
-const insights = Object.values(
-	import.meta.glob("../insights/*.md", { eager: true }),
-);
 ---
 
 <Layout
@@ -13,34 +9,6 @@ const insights = Object.values(
 >
   <section>
     <h1 class="text-5xl font-semibold tracking-tight scroll-m-20">insights</h1>
-    <ul class="my-6 ml-6 list-none [&>li]:mt-2">
-      {
-        insights.map((insight, _idx) => {
-          const item = insight as {
-            url: string;
-            frontmatter: { title: string; date: string };
-          };
-          return (
-            <Button asChild variant="link">
-              <a href={`${item.url}`} class="text-sm flex items-baseline gap-3">
-                <time
-                  datetime={`${item.frontmatter.date}`}
-                  class="whitespace-nowrap text-muted-foreground text-sm"
-                  transition:name={`post-date`}
-                >
-                  {item.frontmatter.date}
-                </time>
-                <p
-                  class="text-base font-semibold text-primary"
-                  transition:name={`post-title`}
-                >
-                  {item.frontmatter.title}
-                </p>
-              </a>
-            </Button>
-          );
-        })
-      }
-    </ul>
+    <PostLists />
   </section>
 </Layout>

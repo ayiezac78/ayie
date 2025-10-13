@@ -1,0 +1,41 @@
+---
+import { Button } from "@/components/ui/button";
+
+const insights: {
+	url: string;
+	frontmatter: { title: string; date: string; heading: string };
+}[] = Object.values(
+	import.meta.glob("../pages/insights/*.md", { eager: true }),
+);
+---
+
+<ul class="my-6 ml-6 list-none [&>li]:mt-2">
+  {
+    insights.map((insight, _idx) => {
+      return (
+        <li>
+          <Button asChild variant="link">
+            <a
+              href={`${insight.url}`}
+              class="text-sm flex items-baseline gap-3"
+            >
+              <time
+                datetime={`${insight.frontmatter.date}`}
+                class="whitespace-nowrap text-muted-foreground text-sm"
+                transition:name={`post-date`}
+              >
+                {insight.frontmatter.date}
+              </time>
+              <p
+                class="text-base font-semibold text-primary"
+                transition:name={`post-title`}
+              >
+                {insight.frontmatter.heading}
+              </p>
+            </a>
+          </Button>
+        </li>
+      );
+    })
+  }
+</ul>

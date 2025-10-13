@@ -1,13 +1,6 @@
 ---
 import { ExternalLink } from "@lucide/astro";
-import { Button } from "@/components/ui/button";
-
-const insights: {
-	url: string;
-	frontmatter: { title: string; date: string };
-}[] = Object.values(
-	import.meta.glob("../pages/insights/*.md", { eager: true }),
-);
+import PostLists from "./PostLists.astro";
 ---
 
 <section id="hero" class="space-y-4">
@@ -24,7 +17,7 @@ const insights: {
     </h1>
   </div>
   <p class="leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground">
-    A Philippines based <strong class="font-semibold"> Web Developer</strong>,
+    A Philippine based <strong class="font-semibold"> Web Developer</strong>,
     crafting sleek, engaging interfaces and bring vibrant designs to
     life—building web experiences that captivate and inspire.
   </p>
@@ -45,34 +38,5 @@ const insights: {
   </p>
 </section>
 <section class="mt-6">
-  <ul class="my-6 ml-6 list-none [&>li]:mt-2">
-    {
-      insights.map((insight, _idx) => {
-        return (
-          <li>
-            <Button asChild variant="link">
-              <a
-                href={`${insight.url}`}
-                class="text-sm flex items-baseline gap-3"
-              >
-                <time
-                  datetime={`${insight.frontmatter.date}`}
-                  class="whitespace-nowrap text-muted-foreground text-sm"
-                  transition:name={`post-date`}
-                >
-                  {insight.frontmatter.date}
-                </time>
-                <p
-                  class="text-base font-semibold text-primary"
-                  transition:name={`post-title`}
-                >
-                  {insight.frontmatter.title}
-                </p>
-              </a>
-            </Button>
-          </li>
-        );
-      })
-    }
-  </ul>
+  <PostLists />
 </section>
