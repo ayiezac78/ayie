@@ -48,6 +48,7 @@ const canonicalURL = Astro.url;
     <Font cssVariable="--font-khand" preload />
     <Font cssVariable="--font-supreme" preload />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
     <script is:inline type="module">
       if (!("anchorName" in document.documentElement.style)) {

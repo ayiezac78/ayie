@@ -1,4 +1,5 @@
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 import itsmatteomanfearlyHints from "@itsmatteomanf/astro-early-hints";
 import tailwindcss from "@tailwindcss/vite";
@@ -6,6 +7,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import { remarkReadingTime } from "./remark-reading-time.ts";
 
 export default defineConfig({
+	site: "https://ayie-six.vercel.app/",
 	vite: {
 		plugins: [tailwindcss()],
 	},
@@ -32,6 +34,7 @@ export default defineConfig({
 				},
 			},
 		}),
+		sitemap(),
 	],
 
 	experimental: {

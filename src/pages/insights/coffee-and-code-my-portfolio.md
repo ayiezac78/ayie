@@ -1,7 +1,9 @@
 ---
 layout: "@/layouts/InsightsLayout.astro"
-title: "Coffee & Code: My Portfolio"
+title: "Coffee & Code: Web Developer Portfolio | Modern Front-End Design & UX"
+heading: "Brewing Ideas into Beautiful Code"
 author: "Ayie"
+description: "Discover my web developer portfolio from the Philippines—where Coffee & Code fuel creativity in front-end design, UX thinking, and modern web experiences."
 date: "07 October 2025"
 use:
   - remarkReadingTime

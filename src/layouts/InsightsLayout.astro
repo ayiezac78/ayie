@@ -16,10 +16,17 @@ type Props = MarkdownLayoutProps<{
 	author: string;
 	date: string;
 	minutesRead: string;
+	description: string;
 }>;
 
 const { frontmatter, url } = Astro.props as unknown as {
-	frontmatter: { title: string; author: string; date: string | Date };
+	frontmatter: {
+		title: string;
+		heading: string;
+		author: string;
+		description: string;
+		date: string | Date;
+	};
 	url?: string;
 };
 
@@ -54,15 +61,18 @@ const formattedDate = new Intl.DateTimeFormat("en-PH", {
 }).format(new Date(dateObj.epochMilliseconds));
 
 const { minutesRead } = Astro.props.frontmatter;
+
+const canonicalURL = Astro.url;
 ---
 
 <!doctype html>
 <html lang="en">
   <Head>
     <meta charset="UTF-8" />
-    <!-- <meta name="description" content={description} /> -->
+    <meta name="description" content={frontmatter.description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
     <Font cssVariable="--font-khand" preload />
     <Font cssVariable="--font-supreme" preload />
@@ -101,7 +111,7 @@ const { minutesRead } = Astro.props.frontmatter;
       class="flex-auto prose dark:prose-invert
   prose-h1:font-semibold prose-h2:font-semibold prose-headings:h1 prose-headings:h2 prose-h1:text-primary prose-h2:text-secondary-foreground prose-h2:scroll-m-20 prose-h2:pb-2 prose-h2:tracking-tight prose-h2:first:mt-0 relative"
     >
-      <h1 transition:name={`post-title`}>{frontmatter.title}</h1>
+      <h1 transition:name={`post-title`}>{frontmatter.heading}</h1>
       <div class="flex items-center text-muted-foreground text-sm">
         <time
           datetime={dateObj.toPlainDate().toString()}
