@@ -23,7 +23,7 @@ For the foundation, I chose Astro because of its speed and simplicity. Styling w
 
 ## The Challenges (And the Fixes)
 
-No build is perfect. I wrestled with responsive design, performance, accessibility, icons, etc., and every bug felt like a puzzle. For example, when I hit issues with layout shift, component conflict and deploying it on Cloudflare, I had to dig into documentation, experiment, and sometimes scrap entire approaches before landing on the right solution. These challenges made the portfolio more than just a showcase—they made it a learning journey.
+No build is perfect. I wrestled with responsive design, performance, accessibility, icons, etc., and every bug felt like a puzzle. For example, when I hit issues with layout shift, component conflict and deploying it on Vercel, I had to dig into documentation, experiment, and sometimes scrap entire approaches before landing on the right solution. These challenges made the portfolio more than just a showcase—they made it a learning journey.
 
 ## Adding the Finishing Touches
 
