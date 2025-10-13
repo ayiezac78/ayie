@@ -7,7 +7,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import { remarkReadingTime } from "./remark-reading-time.ts";
 
 export default defineConfig({
-	site: "https://ayie-six.vercel.app/",
+	site: "https://ayiezac.vercel.app",
 	vite: {
 		plugins: [tailwindcss()],
 	},
