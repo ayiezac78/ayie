@@ -30,7 +30,7 @@ const navLinks = [
   <nav class="flex items-center justify-between w-full">
     <ul class="font-medium flex gap-2">
       {
-        navLinks.map(({ url, name, kbd }) => (
+        navLinks.map(({ url, name }) => (
           <li>
             {/* {name === "routes" ? (
               <Button id={name} variant="link" className="" asChild>
@@ -71,9 +71,9 @@ const navLinks = [
                 class={`${pathname === url ? "" : "text-muted-foreground hover:text-primary transition-colors duration-200 ease-in-out"} flex items-center gap-1`}
               >
                 {name}
-                <span class="lg:block hidden">
+                {/* <span class="lg:block hidden">
                   <Kbd>{kbd}</Kbd>
-                </span>
+                </span> */}
               </a>
             </Button>
             {/* )} */}
@@ -101,7 +101,7 @@ const navLinks = [
     </ul>
   </nav>
 </header>
-<script is:inline>
+<!-- <script is:inline>
   document.addEventListener("keydown", (e) => {
     // ignore typing in input/textarea
     const activeTag = document.activeElement.tagName.toLowerCase();
@@ -119,4 +119,4 @@ const navLinks = [
       window.location.href = shortcuts[key];
     }
   });
-</script>
+</script> -->
