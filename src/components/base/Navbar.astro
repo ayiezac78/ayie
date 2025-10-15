@@ -1,5 +1,6 @@
 ---
-import { Briefcase, ImagesIcon } from "@lucide/astro";
+import { Briefcase, FileDown, ImagesIcon } from "@lucide/astro";
+import resumePdf from "@/assets/pdf/Ariel-Maniago-Resume.pdf";
 import { Button } from "@/components/ui/button";
 import { Kbd } from "../ui/kbd";
 
@@ -19,6 +20,10 @@ const navLinks = [
 		name: "showcase",
 		url: "/showcase/",
 		kbd: "S",
+	},
+	{
+		name: "career",
+		url: "/career/",
 	},
 	// {
 	//   name: "routes",
@@ -91,8 +96,8 @@ const navLinks = [
         </a>
       </li>
       <li>
-        <a href="/career" title="career">
-          <Briefcase
+        <a href={resumePdf} title="Download Resume" download>
+          <FileDown
             size={20}
             class="text-muted-foreground hover:text-primary"
           />

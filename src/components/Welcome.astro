@@ -1,5 +1,6 @@
 ---
 import { ArrowRight, ExternalLink } from "@lucide/astro";
+import HoverCardCenix from "@/components/HoverCenixCard.astro";
 import PostLists from "./PostLists.astro";
 import {
 	Card,
@@ -15,7 +16,7 @@ import {
 <section id="hero" class="space-y-4">
   <div class="space-y-2">
     <h1 class="scroll-m-20 tracking-tight text-[min(12vw,72px)] font-khand">
-      <span class="text-muted-foreground font-semibold"
+      <span class="font-semibold"
         >meet <span class="text-accent-foreground">ayie</span></span
       >
 
@@ -25,66 +26,45 @@ import {
       >
     </h1>
   </div>
-  <p class="leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground">
+  <p class="leading-7 [&:not(:first-child)]:mt-6">
     A Philippine based <strong class="font-semibold"> Web Developer</strong>,
     crafting sleek, engaging interfaces and bring vibrant designs to
-    life—building web experiences that captivate and inspire.
+    life—building web experiences that captivate and inspire. You can find my <a
+      href="/showcase/"
+      class="font-semibold transition border-b-2 hover:border-b-muted-foreground"
+      >full projects list here.</a
+    >
   </p>
 
-  <p
-    class="text-muted-foreground leading-7 [&:not(:first-child)]:mt-6 text-lg flex gap-2 items-baseline"
-  >
-    <span> Currently work in </span>
+  <p class="[&:not(:first-child)]:mt-6 flex gap-1 items-baseline">
+    <span>
+      Currently work as <span class="text-lg font-semibold"
+        >Fullstack Web Developer</span
+      > in
+    </span>
     <a
       href="https://cenixweb.com/"
-      class="hover:text-primary transition-colors flex gap-1 items-center"
+      class="hover:text-primary flex gap-1 items-center transition border-b-2 hover:border-b-muted-foreground font-semibold text-lg"
       target="_blank"
       rel="nofollow noreferrer"
     >
-      <strong> Cenix </strong>
-      <ExternalLink size={22} />
+      @cenix
     </a>
   </p>
+  <!-- <HoverCardCenix /> -->
 </section>
 <section class="mt-6">
   <h2
-    class="scroll-m-20 pb-2 text-xl font-semibold tracking-tight first:mt-0 text-primary"
+    class="scroll-m-20 text-xl font-semibold tracking-tight first:mt-0 text-primary"
   >
     insights
   </h2>
   <PostLists />
   <a
     href="/insights/"
-    class="leading-7 [&:not(:first-child)]:mt-6 text-sm text-muted-foreground hover:text-primary transition-colors flex items-center justify-self-end"
+    class="text-sm hover:text-primary flex items-center justify-self-end font-medium transition border-b-2 hover:border-b-muted-foreground"
   >
-    <span class="font-medium">See All</span>
-    <!-- <ArrowUpRight size={20} /> -->
-  </a>
-</section>
-<section class="mt-6">
-  <h2
-    class="scroll-m-20 pb-2 text-xl font-semibold tracking-tight first:mt-0 text-primary"
-  >
-    showcase
-  </h2>
-  <Card>
-    <CardHeader>
-      <CardTitle>Card Title</CardTitle>
-      <CardDescription>Card Description</CardDescription>
-      <CardAction className="text-sm">Card Action</CardAction>
-    </CardHeader>
-    <!-- <CardContent>
-      <p>Card Content</p>
-    </CardContent>
-    <CardFooter>
-      <p>Card Footer</p>
-    </CardFooter> -->
-  </Card>
-  <a
-    href="/showcase/"
-    class="leading-7 [&:not(:first-child)]:mt-6 text-sm text-muted-foreground hover:text-primary transition-colors flex items-center justify-self-end"
-  >
-    <span class="font-medium">See All</span>
+    See All
     <!-- <ArrowUpRight size={20} /> -->
   </a>
 </section>
