@@ -15,10 +15,7 @@ const insights: {
       return (
         <li>
           <Button asChild variant="link">
-            <a
-              href={`${insight.url}`}
-              class="text-sm flex items-baseline gap-3"
-            >
+            <p class="text-sm flex items-baseline gap-3">
               <time
                 datetime={`${insight.frontmatter.date}`}
                 class="whitespace-nowrap text-muted-foreground text-sm"
@@ -26,13 +23,14 @@ const insights: {
               >
                 {insight.frontmatter.date}
               </time>
-              <p
+              <a
+                href={`${insight.url}`}
                 class="text-base font-semibold text-primary"
                 transition:name={`post-title`}
               >
                 {insight.frontmatter.heading}
-              </p>
-            </a>
+              </a>
+            </p>
           </Button>
         </li>
       );
