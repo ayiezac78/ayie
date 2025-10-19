@@ -1,10 +1,60 @@
 ---
+import { FolderGit2, Music } from "lucide-react";
+import RepoCard from "@/components/RepoCard.tsx";
 import Layout from "@/layouts/Layout.astro";
+
+const showcases = [
+	{
+		title: "vite-ssi-plugin",
+		icon: FolderGit2,
+		description:
+			"A Vite starter bundler template for dev workspace using Vite that I integrated in one of my projects at Cenix on a Dev Server. It also includes the custom vite SSI plugin.",
+		domain: "",
+		repo: "https://github.com/ayiezac/vite-ssi-dev-starter-template",
+		languages: ["HTML", "CSS", "JavaScript", "SSI", "PHP", "Vite"],
+	},
+	{
+		title: "mp3-player",
+		icon: Music,
+		description:
+			"A client-side application written in vanilla JavaScript using the AudioContext API, which allows you to listen to your favorite music.",
+		domain: "https://ayiezac78.github.io/mp3-player/",
+		repo: "https://github.com/ayiezac78/mp3-player",
+		languages: ["HTML", "CSS", "JavaScript"],
+	},
+	{
+		title: "portfolio",
+		icon: FolderGit2,
+		description:
+			"A collection of projects and collaborations showcasing my skills and expertise in web development.",
+		domain: "https://ayiezac.vercel.app/",
+		repo: "https://github.com/ayiezac78/ayie",
+		languages: ["TailwindCSS", "JavaScript", "React", "Astro"],
+	},
+];
 ---
 
-<Layout title="Ayie | Showcase" description="This is where i share my projects and collaborations">
-  <section class="relative min-h-dvh">
+<Layout
+  title="Ayie | Showcase"
+  description="This is where i share my projects and collaborations"
+>
+  <section>
     <h1 class="text-5xl font-semibold tracking-tight scroll-m-20">showcase</h1>
-    <p class="text-slate-500 left-1/2 top-1/2 absolute transform -translate-x-1/2 -translate-y-1/2">Nothing here yet</p>
+    <section
+      class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-3 pt-3"
+    >
+      {
+        showcases.map((showcase) => (
+          <RepoCard
+            icon={showcase.icon}
+            title={showcase.title}
+            description={showcase.description}
+            domain={showcase.domain}
+            repo={showcase.repo}
+            languages={showcase.languages}
+          />
+        ))
+      }
+    </section>
   </section>
 </Layout>

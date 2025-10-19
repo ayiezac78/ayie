@@ -1,12 +1,22 @@
 ---
-import { ExternalLink } from "@lucide/astro";
+import { ArrowRight, ExternalLink } from "@lucide/astro";
+import HoverCardCenix from "@/components/HoverCenixCard.tsx";
 import PostLists from "./PostLists.astro";
+import {
+	Card,
+	CardAction,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "./ui/card";
 ---
 
 <section id="hero" class="space-y-4">
   <div class="space-y-2">
     <h1 class="scroll-m-20 tracking-tight text-[min(12vw,72px)] font-khand">
-      <span class="text-muted-foreground font-semibold"
+      <span class="font-semibold"
         >meet <span class="text-accent-foreground">ayie</span></span
       >
 
@@ -16,27 +26,34 @@ import PostLists from "./PostLists.astro";
       >
     </h1>
   </div>
-  <p class="leading-7 [&:not(:first-child)]:mt-6 text-muted-foreground">
+  <p class="leading-7 [&:not(:first-child)]:mt-6">
     A Philippine based <strong class="font-semibold"> Web Developer</strong>,
     crafting sleek, engaging interfaces and bring vibrant designs to
-    life—building web experiences that captivate and inspire.
+    life—building web experiences that captivate and inspire. You can find my <a
+      href="/showcase/"
+      class="font-semibold transition border-b-2 hover:border-b-muted-foreground"
+      >full projects list here.</a
+    >
   </p>
 
-  <p
-    class="text-muted-foreground leading-7 [&:not(:first-child)]:mt-6 text-lg flex gap-2 items-baseline"
-  >
-    <span> Currently work in </span>
-    <a
-      href="https://cenixweb.com/"
-      class="hover:text-primary transition-colors flex gap-1 items-center"
-      target="_blank"
-      rel="nofollow noreferrer"
-    >
-      <strong> Cenix </strong>
-      <ExternalLink size={22} />
-    </a>
+  <p class="[&:not(:first-child)]:mt-6 flex gap-1 items-baseline">
+    Currently work at
+
+    <HoverCardCenix client:load />
   </p>
-</section>
-<section class="mt-6">
-  <PostLists />
+  <section class="mt-6">
+    <h2
+      class="scroll-m-20 text-xl font-semibold tracking-tight first:mt-0 text-primary"
+    >
+      insights
+    </h2>
+    <PostLists />
+    <a
+      href="/insights/"
+      class="text-sm hover:text-primary flex items-center justify-self-end font-medium transition border-b-2 hover:border-b-muted-foreground"
+    >
+      See All
+      <!-- <ArrowUpRight size={20} /> -->
+    </a>
+  </section>
 </section>
