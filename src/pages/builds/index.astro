@@ -35,26 +35,31 @@ const showcases = [
 ---
 
 <Layout
-  title="Ayie | Showcase"
-  description="This is where i share my projects and collaborations"
+	title="Ayie | Showcase"
+	description="This is where i share my projects and collaborations"
 >
-  <section>
-    <h1 class="text-5xl font-semibold tracking-tight scroll-m-20">showcase</h1>
-    <section
-      class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-3 pt-3"
-    >
-      {
-        showcases.map((showcase) => (
-          <RepoCard
-            icon={showcase.icon}
-            title={showcase.title}
-            description={showcase.description}
-            domain={showcase.domain}
-            repo={showcase.repo}
-            languages={showcase.languages}
-          />
-        ))
-      }
-    </section>
-  </section>
+	<section>
+		<h1 class="text-5xl font-semibold tracking-tight scroll-m-20">builds</h1>
+		<p>
+			<i class="text-muted-foreground text-sm"
+				>Builds that tell my story in code.</i
+			>
+		</p>
+		<section
+			class="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-3 pt-3"
+		>
+			{
+				showcases.map((showcase) => (
+					<RepoCard
+						icon={showcase.icon}
+						title={showcase.title}
+						description={showcase.description}
+						domain={showcase.domain}
+						repo={showcase.repo}
+						languages={showcase.languages}
+					/>
+				))
+			}
+		</section>
+	</section>
 </Layout>
