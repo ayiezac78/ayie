@@ -67,64 +67,64 @@ const canonicalURL = Astro.url;
 
 <!doctype html>
 <html lang="en">
-  <Head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={frontmatter.description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonicalURL} />
-    <meta name="generator" content={Astro.generator} />
-    <Font cssVariable="--font-khand" preload />
-    <Font cssVariable="--font-supreme" preload />
-    <link
-      rel="canonical"
-      href={Astro.site
-        ? new URL(url ?? "/", Astro.site).pathname
-        : (url ?? "/")}
-    />
-    <ClientRouter />
-    <LoadingIndicator color="#FFA34D" />
-    <title>{frontmatter.title}</title>
-    <script is:inline type="module">
-      if (!("anchorName" in document.documentElement.style)) {
-        import("https://unpkg.com/@oddbird/css-anchor-positioning");
-      }
-    </script>
-    <script is:inline>
-      const theme = (() => {
-        if (localStorage?.getItem("theme")) {
-          return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return null;
-      })();
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
-  </Head>
-  <body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">
-    <Navbar />
-    <main
-      class="flex-auto prose dark:prose-invert
+	<Head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={frontmatter.description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="generator" content={Astro.generator} />
+		<Font cssVariable="--font-khand" preload />
+		<Font cssVariable="--font-supreme" preload />
+		<link
+			rel="canonical"
+			href={Astro.site
+				? new URL(url ?? "/", Astro.site).pathname
+				: (url ?? "/")}
+		/>
+		<ClientRouter />
+		<LoadingIndicator color="#FFA34D" />
+		<title>{frontmatter.title}</title>
+		<script is:inline type="module">
+			if (!("anchorName" in document.documentElement.style)) {
+				import("https://unpkg.com/@oddbird/css-anchor-positioning");
+			}
+		</script>
+		<script is:inline>
+			const theme = (() => {
+				if (localStorage?.getItem("theme")) {
+					return localStorage.getItem("theme");
+				}
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+					return "dark";
+				}
+				return null;
+			})();
+			if (theme === "dark") {
+				document.documentElement.classList.add("dark");
+			}
+		</script>
+	</Head>
+	<body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">
+		<Navbar />
+		<main
+			class="flex-auto prose dark:prose-invert
   prose-h1:font-semibold prose-h2:font-semibold prose-headings:h1 prose-headings:h2 prose-h1:text-primary prose-h2:text-secondary-foreground prose-h2:scroll-m-20 prose-h2:pb-2 prose-h2:tracking-tight prose-h2:first:mt-0 relative"
-    >
-      <h1 transition:name={`post-title`}>{frontmatter.heading}</h1>
-      <div class="flex items-center text-muted-foreground text-sm">
-        <time
-          datetime={dateObj.toPlainDate().toString()}
-          transition:name={`post-date`}
-        >
-          {formattedDate}
-        </time>
-        <Dot />
-        <span>{minutesRead}</span>
-      </div>
-      <slot />
-      <ThemeIcon />
-    </main>
-    <Footer />
-  </body>
+		>
+			<h1 transition:name={`post-title`}>{frontmatter.heading}</h1>
+			<div class="flex items-center text-muted-foreground text-sm">
+				<time
+					datetime={dateObj.toPlainDate().toString()}
+					transition:name={`post-date`}
+				>
+					{formattedDate}
+				</time>
+				<Dot />
+				<span>{minutesRead}</span>
+			</div>
+			<slot />
+			<ThemeIcon />
+		</main>
+		<Footer />
+	</body>
 </html>

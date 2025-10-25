@@ -1,8 +1,7 @@
 ---
-import { Briefcase, FileDown, ImagesIcon } from "@lucide/astro";
+import { FileDown, ImagesIcon } from "@lucide/astro";
 import resumePdf from "@/assets/pdf/Ariel-Maniago-Resume.pdf";
 import { Button } from "@/components/ui/button";
-import { Kbd } from "../ui/kbd";
 
 const { pathname } = Astro.url;
 const navLinks = [
@@ -33,48 +32,12 @@ const navLinks = [
       {
         navLinks.map(({ url, name }) => (
           <li>
-            {/* {name === "routes" ? (
-              <Button id={name} variant="link" className="" asChild>
-                <div class="dropdown relative group inline-block">
-                  <button
-                    class="flex items-center gap-1 dropbtn text-muted-foreground transition-colors duration-200 ease-in-out
-                              group-hover:text-primary
-                             focus:text-primary"
-                  >
-                    {name}
-                    <ChevronDown class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 group-focus:rotate-180" />
-                  </button>
-
-                  <ul
-                    class="dropdown-content absolute rounded-md dark:bg-stone-800 bg-gray-100 shadow-md px-2 py-1 text-sm dark:text-stone-50
-                             opacity-0 translate-y-1 pointer-events-none
-                             transition-all duration-200
-                             group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
-                             group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto
-                             grid gap-1 z-10"
-                  >
-                    <li>
-                      <a href="/photos">photos</a>
-                    </li>
-                    <li>
-                      <a href="/career">career</a>
-                    </li>
-                    <li>
-                      <a href="/about">about</a>
-                    </li>
-                  </ul>
-                </div>
-              </Button>
-            ) : ( */}
             <Button variant="link" size="sm" asChild client:load>
               <a
                 href={url}
                 class={`${pathname === url ? "" : "text-muted-foreground hover:text-primary transition-colors duration-200 ease-in-out"} flex items-center gap-1`}
               >
                 {name}
-                {/* <span class="lg:block hidden">
-                  <Kbd>{kbd}</Kbd>
-                </span> */}
               </a>
             </Button>
             {/* )} */}
@@ -84,7 +47,7 @@ const navLinks = [
     </ul>
     <ul class="flex items-center gap-2">
       <li>
-        <a href="/photos" title="photos">
+        <a href="/photos" title="photos" aria-label="photos">
           <ImagesIcon
             size={20}
             class="text-muted-foreground hover:text-primary"
@@ -92,7 +55,12 @@ const navLinks = [
         </a>
       </li>
       <li>
-        <a href={resumePdf} title="Download Resume" download>
+        <a
+          href={resumePdf}
+          title="Download Resume"
+          aria-label="Download Resume"
+          download
+        >
           <FileDown
             size={20}
             class="text-muted-foreground hover:text-primary"

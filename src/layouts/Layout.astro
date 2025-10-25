@@ -23,45 +23,45 @@ const canonicalURL = Astro.url;
 
 <!doctype html>
 <html lang="en">
-  <Head>
-    <script is:inline>
-      const theme = (() => {
-        if (localStorage?.getItem("theme")) {
-          return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return null;
-      })();
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <ClientRouter />
-    <LoadingIndicator color="#FFA34D" />
-    <Font cssVariable="--font-khand" preload />
-    <Font cssVariable="--font-supreme" preload />
-    <link rel="canonical" href={canonicalURL} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <title>{title}</title>
-    <script is:inline type="module">
-      if (!("anchorName" in document.documentElement.style)) {
-        import("https://unpkg.com/@oddbird/css-anchor-positioning");
-      }
-    </script>
-  </Head>
-  <body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">
-    <Navbar />
-    <main class="flex-auto relative">
-      <slot />
-      <ThemeIcon />
-    </main>
-    <Footer />
-  </body>
+	<Head>
+		<script is:inline>
+			const theme = (() => {
+				if (localStorage?.getItem("theme")) {
+					return localStorage.getItem("theme");
+				}
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+					return "dark";
+				}
+				return null;
+			})();
+			if (theme === "dark") {
+				document.documentElement.classList.add("dark");
+			}
+		</script>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<ClientRouter />
+		<LoadingIndicator color="#FFA34D" />
+		<Font cssVariable="--font-khand" preload />
+		<Font cssVariable="--font-supreme" preload />
+		<link rel="canonical" href={canonicalURL} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<title>{title}</title>
+		<script is:inline type="module">
+			if (!("anchorName" in document.documentElement.style)) {
+				import("https://unpkg.com/@oddbird/css-anchor-positioning");
+			}
+		</script>
+	</Head>
+	<body class="w-full flex flex-col justify-start p-4 max-w-xl mx-auto gap-6">
+		<Navbar />
+		<main class="flex-auto relative">
+			<slot />
+			<ThemeIcon />
+		</main>
+		<Footer />
+	</body>
 </html>
