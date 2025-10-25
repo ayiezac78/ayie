@@ -24,7 +24,7 @@ jobs:
         run: bun ci
 
       - name: Setup Biome
-        uses: biomejs/setup-biome@v2.3.0
+        uses: biomejs/setup-biome
 
         with:
           version: latest
