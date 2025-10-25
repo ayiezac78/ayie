@@ -24,10 +24,10 @@ jobs:
         run: bun ci
 
       - name: Setup Biome
-        uses: biomejs/setup-biome@v2.3
+        uses: biomejs/setup-biome@v2
 
         with:
-          version: latest
+          version: 2.3.0
 
       - name: Run Biome
         run: biome ci .
