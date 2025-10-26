@@ -1,10 +1,18 @@
 ---
-
 import { FolderGit2, Music } from "lucide-react";
 import RepoCard from "@/components/RepoCard.tsx";
 import Layout from "@/layouts/Layout.astro";
 
 const showcases = [
+	{
+		title: "calculator-CLI",
+		icon: FolderGit2,
+		description:
+			"Basic calculator via CLI, while learning Go programming language fundamentals and syntax.",
+		domain: "",
+		repo: "https://github.com/ayiezac78/golang-calculator",
+		languages: ["Go"],
+	},
 	{
 		title: "vite-ssi-plugin",
 		icon: FolderGit2,
@@ -34,6 +42,7 @@ const showcases = [
 	},
 ];
 ---
+
 <Layout
 	title="Ayie | Showcase"
 	description="This is where i share my projects and collaborations"
@@ -52,12 +61,14 @@ const showcases = [
 				showcases.map((showcase) => (
 					<RepoCard
 						icon={showcase.icon}
-			title={showcase.title}
-			description={showcase.description}
-			domain={showcase.domain}
-			repo={showcase.repo}
-			languages={showcase.languages}
-			/> )) }
+						title={showcase.title}
+						description={showcase.description}
+						domain={showcase.domain}
+						repo={showcase.repo}
+						languages={showcase.languages}
+					/>
+				))
+			}
 		</section>
 	</section>
 </Layout>
